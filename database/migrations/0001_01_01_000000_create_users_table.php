@@ -16,9 +16,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nohp')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['operator', 'dokter'])->default('operator'); // Tambahkan ini
+            $table->enum('role', ['admin', 'user', 'operator', 'dokter'])->default('user'); // Default role 'user' untuk register flutter
             $table->rememberToken();
             $table->timestamps();
         });
